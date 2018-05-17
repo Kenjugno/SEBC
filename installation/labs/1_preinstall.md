@@ -4,35 +4,38 @@ Set the value to 1 if necessary
 
 
 	[root@ip-172-31-24-143 ~]# cat /proc/sys/vm/swappiness
+
 	30
 	
 	[root@ip-172-31-24-143 ~]# /sbin/sysctl -a | grep swappiness
+
 	sysctl: reading key "net.ipv6.conf.all.stable_secret"
 	sysctl: reading key "net.ipv6.conf.default.stable_secret"
 	sysctl: reading key "net.ipv6.conf.eth0.stable_secret"
 	sysctl: reading key "net.ipv6.conf.lo.stable_secret"
+
 	vm.swappiness = 30
 	
 
-
-
 	[root@ip-172-31-24-143 ~]# echo 1 > /proc/sys/vm/swappiness
 	[root@ip-172-31-24-143 ~]#  cat /proc/sys/vm/swappiness
+
 	1
-	[root@ip-172-31-24-143 ~]#
 	
 	
-	##### INCLLUDE it in the /etc/sysctl.conf
+	
+	INCLLUDE it in the /etc/sysctl.conf
 	
 	[root@ip-172-31-24-143 etc]# more /etc/sysctl.conf |grep -i swappiness
+
 	vm.swappiness = 1
-	[root@ip-172-31-24-143 etc]#
+	
 
 
 
 2. Show the mount attributes of your volume(s)
 
-DF
+	DF
 
 	[ec2-user@ip-172-31-24-143 ~]$ df -h
 	
@@ -58,7 +61,7 @@ XFS volumes do not support reserve space
 	xvda
 	+-xvda1
 	+-xvda2 xfs          50a9826b-3a50-44d0-ad12-28f2056e9927 /
-
+	[ec2-user@ip-172-31-24-143 ~]$
 
 
 4. Disable transparent hugepage support
