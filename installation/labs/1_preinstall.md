@@ -35,7 +35,7 @@ Set the value to 1 if necessary
 
 2. Show the mount attributes of your volume(s)
 
-	DF
+DF
 
 	[ec2-user@ip-172-31-24-143 ~]$ df -h
 	
@@ -53,7 +53,7 @@ Set the value to 1 if necessary
 3. If you have ext-based volumes, list the reserve space setting
 XFS volumes do not support reserve space
 
-	LSBLK
+LSBLK
 	
 	[ec2-user@ip-172-31-24-143 ~]$ lsblk -f
 	
@@ -66,7 +66,7 @@ XFS volumes do not support reserve space
 
 4. Disable transparent hugepage support
 
-	HUGE PAGES
+HUGE PAGES
 	
 	[root@ip-172-31-24-143 etc]# cat /sys/kernel/mm/transparent_hugepage/enabled
 	[always] madvise never
