@@ -46,10 +46,10 @@ List the command and output for yum repolist enabled
 	[root@ip-172-31-25-119 yum.repos.d]
 
 User jimenez with a UID of 2800
-	useradd -u 2800 jimenez
+	[root@ip-172-31-25-119 ec2-user]#useradd -u 2800 jimenez
 
 User beltran with a UID of 2900
-	useradd -u 2900 beltran
+	[root@ip-172-31-25-119 ec2-user]#useradd -u 2900 beltran
 
 Create the group astros and add beltran to it
 

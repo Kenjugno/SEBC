@@ -46,21 +46,38 @@ List the command and output for yum repolist enabled
 	[root@ip-172-31-25-119 yum.repos.d]
 
 User jimenez with a UID of 2800
-	useradd -u 2800 jimenez
+	[root@ip-172-31-25-119 ec2-user]#useradd -u 2800 jimenez
 
 User beltran with a UID of 2900
-	useradd -u 2900 beltran
+	[root@ip-172-31-25-119 ec2-user]#useradd -u 2900 beltran
 
 Create the group astros and add beltran to it
+
+	[root@ip-172-31-25-119 ec2-user]# groupadd astros	
+	[root@ip-172-31-25-119 ec2-user]# usermod -g astros beltran
+	[root@ip-172-31-25-119 ec2-user]# id beltran
+	uid=2900(beltran) gid=2901(astros) groups=2901(astros)
+
+
 Create the group rangers and add jimenez to it
 
-	[root@ip-172-31-25-119 yum.repos.d]# groupadd rangers
-	[root@ip-172-31-25-119 yum.repos.d]# useradd -G rangers jimenez
+	[root@ip-172-31-25-119 ec2-user]# groupadd rangers
+	[root@ip-172-31-25-119 ec2-user]# usermod -g rangers jimenez
+	[root@ip-172-31-25-119 ec2-user]# id jimenez
+	uid=2800(jimenez) gid=2902(rangers) groups=2902(rangers)
 
-	[root@ip-172-31-25-119 yum.repos.d]# groupadd astros
-	[root@ip-172-31-25-119 yum.repos.d]# useradd -G astros beltran
 
+List the /etc/passwd entries for jimenez and beltran
+	[root@ip-172-31-25-119 ec2-user]# grep -i jimenez /etc/passwd
+	jimenez:x:2800:2902::/home/jimenez:/bin/bash
+	[root@ip-172-31-25-119 ec2-user]# grep -i beltran /etc/passwd
+	beltran:x:2900:2901::/home/beltran:/bin/bash
 
+List the /etc/group entries for astros and rangers
+	[root@ip-172-31-25-119 ec2-user]# grep -i jimenez /etc/group
+	jimenez:x:2800:
+	[root@ip-172-31-25-119 ec2-user]# grep -i beltran /etc/group
+	beltran:x:2900:
 
 Install MySQL 5.5 or MariaDB 5.5 on the first node listed in 0_setup.md
 Use a YUM repository to install the package
