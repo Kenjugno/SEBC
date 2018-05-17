@@ -2,6 +2,7 @@
 1. Check vm.swappiness on all your nodes
 Set the value to 1 if necessary
 
+SWAPPINESS
 
 	[root@ip-172-31-24-143 ~]# cat /proc/sys/vm/swappiness
 
