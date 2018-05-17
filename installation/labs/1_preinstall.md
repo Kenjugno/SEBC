@@ -5,13 +5,14 @@ Set the value to 1 if necessary
 
 	[root@ip-172-31-24-143 ~]# cat /proc/sys/vm/swappiness
 	30
+	
 	[root@ip-172-31-24-143 ~]# /sbin/sysctl -a | grep swappiness
 	sysctl: reading key "net.ipv6.conf.all.stable_secret"
 	sysctl: reading key "net.ipv6.conf.default.stable_secret"
 	sysctl: reading key "net.ipv6.conf.eth0.stable_secret"
 	sysctl: reading key "net.ipv6.conf.lo.stable_secret"
 	vm.swappiness = 30
-	[root@ip-172-31-24-143 ~]#
+	
 
 
 
@@ -66,28 +67,30 @@ XFS volumes do not support reserve space
 	
 	[root@ip-172-31-24-143 etc]# cat /sys/kernel/mm/transparent_hugepage/enabled
 	[always] madvise never
+	
 	[root@ip-172-31-24-143 etc]# cat /sys/kernel/mm/transparent_hugepage/defrag
 	[always] madvise never
-	[root@ip-172-31-24-143 etc]#
 	
 	[root@ip-172-31-24-143 etc]# echo never > /sys/kernel/mm/transparent_hugepage/enabled
 	[root@ip-172-31-24-143 etc]# echo never > /sys/kernel/mm/transparent_hugepage/defrag
+	
 	[root@ip-172-31-24-143 etc]# ls -la /etc/rc.d/rc.local
 	-rw-r--r--. 1 root root 473 Feb 20 15:47 /etc/rc.d/rc.local
 	[root@ip-172-31-24-143 etc]# chmod +x /etc/rc.d/rc.local
 	[root@ip-172-31-24-143 etc]# ls -la /etc/rc.d/rc.local
 	-rwxr-xr-x. 1 root root 473 Feb 20 15:47 /etc/rc.d/rc.local
-	[root@ip-172-31-24-143 etc]#
+	
 	
 	
 	[root@ip-172-31-24-143 etc]# systemctl stop tuned
 	[root@ip-172-31-24-143 etc]# systemctl disable tuned
-	[root@ip-172-31-24-143 etc]#
+	
 
 
 5. List your network interface configuration
 
 [root@ip-172-31-24-143 etc]# hostnamectl
+
 	   Static hostname: ip-172-31-24-143.ap-southeast-1.compute.internal
 	         Icon name: computer-vm
 	           Chassis: vm
@@ -105,12 +108,12 @@ XFS volumes do not support reserve space
 
 	  NOTE: No available command installed
 		For /etc/hosts, use getent	-> can also use (cat /etc/hosts)
-	For DNS, use nslookup		
+		For DNS, use nslookup		
 
 
 6. Show the nscd service is running
 
-	  NOTE: No available command installed, but can use this to get th output
+	  NOTE: No available command installed, but can use this to get the output
 	
 		#ps -ef|grep -i nscd
 
@@ -120,4 +123,4 @@ XFS volumes do not support reserve space
 	   NOTE: No available command installed
 	
 		#ntpq -p
-		#ps -ef|grep -i ntp
+#ps -ef|grep -i ntp
