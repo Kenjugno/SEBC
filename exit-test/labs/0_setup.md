@@ -68,7 +68,7 @@ YUM REPOLIST ENABLED
 	repolist: 20,631
 
 
-USER ACCOUNTS
+USER ACCOUNTS (CREATED ON ALL NODES)
 
 	[root@ip-172-31-27-185 ec2-user]# useradd -u 2500 thanos
 	[root@ip-172-31-27-185 ec2-user]# useradd -u 2600 hulk
